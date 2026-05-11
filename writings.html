@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writings — H. I. Samyuktha</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.writing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1.4rem; }
+.writing-card { border: 1px solid var(--card-border); background: var(--card-bg); padding: 2rem 1.75rem; transition: border-color .35s, transform .35s; display: flex; flex-direction: column; position: relative; overflow: hidden; text-decoration: none; color: inherit; }
+.writing-card:hover { border-color: rgba(201,168,76,.32); transform: translateY(-5px); }
+.writing-badge { position: absolute; top: 1rem; right: 1rem; font-size: .52rem; letter-spacing: .2em; text-transform: uppercase; padding: .18rem .6rem; border: 1px solid rgba(201,168,76,.22); color: var(--gold); opacity: .7; }
+.writing-badge.published { border-color: rgba(201,168,76,.5); opacity: 1; background: rgba(201,168,76,.05); }
+.writing-cat { font-size: .57rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: .9rem; }
+.writing-title { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 400; color: var(--text); line-height: 1.3; margin-bottom: .7rem; flex: 1; }
+.writing-excerpt { font-size: .84rem; color: var(--text-ter); line-height: 1.7; margin-bottom: 1.2rem; }
+.writing-meta { display: flex; align-items: center; justify-content: space-between; font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; color: var(--text-ter); border-top: 1px solid var(--rule); padding-top: .9rem; margin-top: auto; }
+.writing-cta { text-align: center; padding: 3.5rem 2rem; border: 1px dashed var(--rule); margin-top: 2rem; }
+.writing-cta p { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--text-sec); font-style: italic; margin-bottom: 1.5rem; }
+
+/* HOW TO ADD ARTICLES — instructions as comment in the HTML */
+</style>
+</head>
+<body>
+<script src="js/nav-inject.js"></script>
+
+<section>
+  <div class="sec-label">The Written Word</div>
+  <h2 class="sec-title">Thoughts on <em>Business, Brand & Beyond</em></h2>
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  HOW TO ADD A NEW ARTICLE                                   ║
+  ║  Copy one .writing-card block below, then:                   ║
+  ║  1. Change href="..." to your article URL or a local file    ║
+  ║  2. Change the badge text (Coming Soon → Published)          ║
+  ║  3. Update category, title, excerpt, type, and date          ║
+  ║  4. Set class="writing-badge published" for live articles    ║
+  ╚══════════════════════════════════════════════════════════════╝
+  -->
+
+  <div class="writing-grid">
+
+    <!-- ── PUBLISHED ARTICLES — change href to your real URL ── -->
+    <a href="#" class="writing-card reveal" target="_blank">
+      <span class="writing-badge">Coming Soon</span>
+      <div class="writing-cat">Business Strategy</div>
+      <div class="writing-title">Decoding the Architecture of a Winning Business Model</div>
+      <div class="writing-excerpt">What separates businesses that merely survive from those that define their category — from first principles to execution frameworks.</div>
+      <div class="writing-meta"><span>Article</span><span>——</span></div>
+    </a>
+
+    <a href="#" class="writing-card reveal" target="_blank">
+      <span class="writing-badge">Coming Soon</span>
+      <div class="writing-cat">Brand Positioning</div>
+      <div class="writing-title">The Invisible Architecture: How Brands Claim Space in a Crowded Market</div>
+      <div class="writing-excerpt">Why the most powerful brand decisions happen before a single campaign is launched — a study of positioning, perception, and presence.</div>
+      <div class="writing-meta"><span>Essay</span><span>——</span></div>
+    </a>
+
+    <a href="#" class="writing-card reveal" target="_blank">
+      <span class="writing-badge">Coming Soon</span>
+      <div class="writing-cat">Leadership & Operations</div>
+      <div class="writing-title">What It Really Means to Operate at the Executive Level</div>
+      <div class="writing-excerpt">Reflections on the transition from contributor to operator — the mental models, blind spots, and responsibilities that define a COO mindset.</div>
+      <div class="writing-meta"><span>Reflection</span><span>——</span></div>
+    </a>
+
+    <a href="#" class="writing-card reveal" target="_blank">
+      <span class="writing-badge">Coming Soon</span>
+      <div class="writing-cat">Healthcare & Innovation</div>
+      <div class="writing-title">Intelligent Systems & the Future of Patient-Centred Care</div>
+      <div class="writing-excerpt">How technology, operations, and human insight are converging to transform healthcare — and why this demands a new kind of leadership.</div>
+      <div class="writing-meta"><span>Analysis</span><span>——</span></div>
+    </a>
+
+    <a href="#" class="writing-card reveal" target="_blank">
+      <span class="writing-badge">Coming Soon</span>
+      <div class="writing-cat">Sales & Marketing</div>
+      <div class="writing-title">Beyond the Funnel: Why Modern Marketing Is a Trust Economy</div>
+      <div class="writing-excerpt">The metrics-obsessed playbook is missing something fundamental. A case for depth over reach, and relationship over reach rate.</div>
+      <div class="writing-meta"><span>Opinion</span><span>——</span></div>
+    </a>
+
+    <a href="#" class="writing-card reveal" target="_blank">
+      <span class="writing-badge">Coming Soon</span>
+      <div class="writing-cat">Pharmaceutical Research</div>
+      <div class="writing-title">The SPARC Lens: Advancing Pharmacy Through Community & Research</div>
+      <div class="writing-excerpt">Inside the intersection of institutional advocacy, research culture, and professional community-building in the pharmaceutical sciences.</div>
+      <div class="writing-meta"><span>Case Study</span><span>——</span></div>
+    </a>
+
+    <!-- TEMPLATE — duplicate and fill in for each new article
+    <a href="https://your-article-link.com" class="writing-card reveal" target="_blank">
+      <span class="writing-badge published">Published</span>
+      <div class="writing-cat">Category Here</div>
+      <div class="writing-title">Your Article Title Here</div>
+      <div class="writing-excerpt">A short description of what the article covers and why it matters.</div>
+      <div class="writing-meta"><span>Article / Essay / Opinion</span><span>Jan 2026</span></div>
+    </a>
+    -->
+  </div>
+
+  <div class="writing-cta reveal">
+    <p>Full articles and essays will be published here. Follow on LinkedIn for updates.</p>
+    <a href="https://www.linkedin.com/in/dr-h-i-samyuktha-2288b2319" target="_blank" class="btn-royal"><span>Follow on LinkedIn</span></a>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+<div class="page-footer">
+  <div class="footer-brand">H. I. Samyuktha</div>
+  <div class="footer-copy">© 2026 · All Rights Reserved</div>
+</div>
+<script src="js/nav.js"></script>
+</body>
+</html>

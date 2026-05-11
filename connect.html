@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect — H. I. Samyuktha</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.connect-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.about-body-connect { font-size: .92rem; color: var(--text-sec); line-height: 1.9; margin-bottom: 1rem; }
+.philosophy-box { border: 1px solid var(--card-border); background: var(--card-bg); padding: 2.5rem; margin-top: 2.5rem; position: relative; }
+.philosophy-box::before { content: '"'; position: absolute; top: .8rem; left: 1.4rem; font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: var(--gold); opacity: .1; line-height: 1; }
+.philosophy-box blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; font-style: italic; color: var(--text); line-height: 1.55; }
+.philosophy-box cite { display: block; margin-top: 1.2rem; font-family: 'Jost', sans-serif; font-size: .6rem; font-style: normal; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+.c-links { display: flex; flex-direction: column; gap: .9rem; }
+.c-link { display: flex; align-items: center; gap: 1.4rem; padding: 1.2rem 1.5rem; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-sec); text-decoration: none; transition: all .3s; }
+.c-link:hover { border-color: var(--gold); color: var(--gold); transform: translateX(5px); }
+.c-sym { font-size: 1rem; color: var(--gold); opacity: .5; flex-shrink: 0; width: 18px; text-align: center; }
+.c-label { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--text-ter); margin-bottom: .12rem; }
+.c-val { font-size: .86rem; }
+.open-to-box { margin-top: 2rem; padding: 1.75rem; border: 1px solid var(--rule); }
+@media (max-width: 920px) { .connect-layout { grid-template-columns: 1fr; gap: 3rem; } }
+</style>
+</head>
+<body>
+<script src="js/nav-inject.js"></script>
+
+<section>
+  <div class="sec-label">Open Channels</div>
+  <div class="connect-layout">
+    <div>
+      <h2 class="sec-title">Ready to build<br>something <em>remarkable?</em></h2>
+      <p class="about-body-connect">Whether it's a strategic conversation, a collaboration, or simply an exchange of ideas — I welcome connections with those who think deeply, act boldly, and build with intention.</p>
+      <p class="about-body-connect">I am particularly open to conversations around healthcare innovation, brand strategy, business partnerships, and leadership development.</p>
+      <div class="philosophy-box reveal">
+        <blockquote>The most powerful thing a leader can do is refuse to stay within the boundaries others drew for them.<cite>— H. I. Samyuktha</cite></blockquote>
+      </div>
+    </div>
+    <div>
+      <div class="c-links reveal">
+        <a href="https://www.linkedin.com/in/dr-h-i-samyuktha-2288b2319" target="_blank" class="c-link">
+          <div class="c-sym">in</div>
+          <div><div class="c-label">LinkedIn</div><div class="c-val">H. I. Samyuktha</div></div>
+        </a>
+        <a href="mailto:your@email.com" class="c-link">
+          <!-- EDIT: replace your@email.com with your real email -->
+          <div class="c-sym">@</div>
+          <div><div class="c-label">Email</div><div class="c-val">Add your email address</div></div>
+        </a>
+        <a href="#" class="c-link">
+          <div class="c-sym">◎</div>
+          <div><div class="c-label">Location</div><div class="c-val">Coimbatore, Tamil Nadu, India</div></div>
+        </a>
+        <a href="#" class="c-link">
+          <div class="c-sym">◈</div>
+          <div><div class="c-label">Organisation</div><div class="c-val">Alphatic Labs · Chief Operating Officer</div></div>
+        </a>
+      </div>
+      <div class="open-to-box reveal">
+        <div class="sec-label" style="margin-bottom:1rem;">Open To</div>
+        <div class="tags">
+          <span class="tag">Strategic Partnerships</span>
+          <span class="tag">Speaking Engagements</span>
+          <span class="tag">Research Collaboration</span>
+          <span class="tag">Brand Consulting</span>
+          <span class="tag">Healthcare Innovation</span>
+          <span class="tag">Mentorship</span>
+          <span class="tag">Advisory Roles</span>
+          <span class="tag">Content Collaboration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+<div class="page-footer">
+  <div class="footer-brand">H. I. Samyuktha</div>
+  <div class="footer-copy">© 2026 · All Rights Reserved</div>
+</div>
+<script src="js/nav.js"></script>
+</body>
+</html>

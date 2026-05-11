@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience — H. I. Samyuktha</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.timeline { position: relative; padding-left: 3rem; }
+.timeline::before { content: ''; position: absolute; left: 0; top: .5rem; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), transparent); }
+.tl-item { position: relative; margin-bottom: 3rem; opacity: 0; transform: translateX(-16px); transition: opacity .6s, transform .6s; }
+.tl-item.visible { opacity: 1; transform: translateX(0); }
+.tl-dot { position: absolute; left: -3.35rem; top: .35rem; width: 10px; height: 10px; border: 1px solid var(--gold); background: var(--bg); transform: rotate(45deg); transition: background .3s; }
+.tl-item:hover .tl-dot { background: var(--gold); }
+.tl-card { border: 1px solid var(--card-border); background: var(--card-bg); padding: 2rem 2.5rem; transition: border-color .3s, transform .3s; }
+.tl-item:hover .tl-card { border-color: rgba(201,168,76,.36); transform: translateX(4px); }
+.tl-period { font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: .55rem; }
+.tl-role { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--text); line-height: 1.15; margin-bottom: .25rem; }
+.tl-org { font-size: .76rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--text-sec); margin-bottom: .5rem; }
+.tl-badge { display: inline-block; font-size: .57rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(201,168,76,.26); padding: .17rem .68rem; margin-bottom: 1rem; }
+.tl-desc { font-size: .88rem; color: var(--text-ter); line-height: 1.75; margin-bottom: 1rem; }
+</style>
+</head>
+<body>
+<script src="js/nav-inject.js"></script>
+
+<section>
+  <div class="sec-label">Career Trajectory</div>
+  <h2 class="sec-title">A Record of<br><em>Meaningful Work</em></h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-period">Mar 2026 — Present</div>
+        <div class="tl-role">Chief Operating Officer</div>
+        <div class="tl-org">Alphatic Labs</div>
+        <span class="tl-badge">Full-Time</span>
+        <p class="tl-desc">Driving the operational architecture of Alphatic Labs — an intelligent, all-in-one healthcare platform. Responsibilities span strategic planning, operational systems design, cross-functional leadership, and stakeholder alignment. Building the internal infrastructure of a company at the frontier of healthcare technology — ensuring that vision translates into execution with rigour and pace.</p>
+        <div class="tags">
+          <span class="tag">Business Analysis</span><span class="tag">Strategic Operations</span><span class="tag">Healthcare Systems</span><span class="tag">Team Leadership</span><span class="tag">Communication</span><span class="tag">Executive Management</span><span class="tag">Process Design</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-period">Nov 2025 — Mar 2026 · 5 months</div>
+        <div class="tl-role">Associate Researcher</div>
+        <div class="tl-org">Zane ProEd.</div>
+        <span class="tl-badge">Internship</span>
+        <p class="tl-desc">Conducted applied research within a professional education environment, sharpening analytical acumen and the capacity to synthesise complex information into actionable insight. Contributed to research frameworks, data interpretation, and written deliverables across multiple domains of inquiry with a focus on rigour and clarity of thought.</p>
+        <div class="tags">
+          <span class="tag">Analytical Skills</span><span class="tag">Research Methodology</span><span class="tag">Communication</span><span class="tag">Data Interpretation</span><span class="tag">Report Writing</span><span class="tag">Critical Thinking</span><span class="tag">Literature Review</span><span class="tag">Collaboration</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-period">Sep 2025 — Mar 2026 · 7 months</div>
+        <div class="tl-role">President's Office Intern</div>
+        <div class="tl-org">Society of Pharmacy Advancement & Research Community (SPARC)</div>
+        <span class="tl-badge">Internship</span>
+        <p class="tl-desc">Operated at the highest institutional level within SPARC, directly supporting presidential-level initiatives in pharmaceutical research and community advancement. Engaged in stakeholder communication, event coordination, policy advocacy, and team leadership — gaining deep exposure to the strategic dimensions of a specialised professional society operating at national scale.</p>
+        <div class="tags">
+          <span class="tag">Public Speaking</span><span class="tag">Team Leadership</span><span class="tag">Community Management</span><span class="tag">Pharmaceutical Advocacy</span><span class="tag">Executive Support</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD MORE ROLES BELOW THIS COMMENT -->
+    <!--
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-period">Month Year — Month Year</div>
+        <div class="tl-role">Your Role Title</div>
+        <div class="tl-org">Organisation Name</div>
+        <span class="tl-badge">Full-Time / Internship / Freelance</span>
+        <p class="tl-desc">Describe your responsibilities and accomplishments here.</p>
+        <div class="tags"><span class="tag">Skill</span></div>
+      </div>
+    </div>
+    -->
+  </div>
+</section>
+
+<div class="gold-line"></div>
+<div class="page-footer">
+  <div class="footer-brand">H. I. Samyuktha</div>
+  <div class="footer-copy">© 2026 · All Rights Reserved</div>
+</div>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

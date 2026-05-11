@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — H. I. Samyuktha</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* Gallery filters */
+.gallery-filters { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.gf-btn { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; padding: .4rem 1.2rem; border: 1px solid var(--rule); background: none; color: var(--text-ter); cursor: pointer; transition: all .3s; }
+.gf-btn.active, .gf-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Masonry grid */
+.gallery-grid {
+  columns: 3; column-gap: 1.2rem;
+}
+@media (max-width: 900px) { .gallery-grid { columns: 2; } }
+@media (max-width: 560px) { .gallery-grid { columns: 1; } }
+
+.gallery-item {
+  break-inside: avoid; margin-bottom: 1.2rem;
+  border: 1px solid var(--card-border); background: var(--card-bg);
+  position: relative; overflow: hidden; cursor: pointer;
+  transition: border-color .3s;
+}
+.gallery-item:hover { border-color: var(--gold); }
+.gallery-item img {
+  width: 100%; display: block;
+  filter: grayscale(20%) contrast(1.05);
+  transition: transform .5s cubic-bezier(.23,1,.32,1), filter .4s;
+}
+.gallery-item:hover img { transform: scale(1.04); filter: grayscale(0%) contrast(1); }
+.gallery-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 2rem 1.2rem 1rem;
+  background: linear-gradient(to top, rgba(12,11,9,.9), transparent);
+  transform: translateY(100%); transition: transform .4s cubic-bezier(.23,1,.32,1);
+}
+.gallery-item:hover .gallery-caption { transform: translateY(0); }
+.gallery-caption-text { font-size: .72rem; color: var(--gold); letter-spacing: .15em; text-transform: uppercase; }
+.gallery-caption-sub { font-size: .65rem; color: var(--text-sec); margin-top: .2rem; }
+
+/* Placeholder tiles */
+.gallery-placeholder {
+  width: 100%; aspect-ratio: 4/3; background: var(--surface2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+}
+.gallery-placeholder.tall { aspect-ratio: 3/4; }
+.gallery-placeholder.wide { aspect-ratio: 16/9; }
+.gallery-placeholder-sym { font-size: 1.8rem; color: var(--gold); opacity: .2; }
+.gallery-placeholder-label { font-size: .6rem; letter-spacing: .25em; text-transform: uppercase; color: var(--text-ter); }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; background: rgba(12,11,9,.96); z-index: 500; display: none; align-items: center; justify-content: center; }
+.lightbox.open { display: flex; }
+.lightbox-img { max-width: 90vw; max-height: 86vh; object-fit: contain; border: 1px solid var(--card-border); }
+.lightbox-close { position: absolute; top: 2rem; right: 2rem; width: 44px; height: 44px; border: 1px solid var(--rule); background: none; cursor: pointer; font-size: 1.2rem; color: var(--text-sec); transition: color .3s, border-color .3s; }
+.lightbox-close:hover { color: var(--gold); border-color: var(--gold); }
+.lightbox-caption { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); text-align: center; }
+.lightbox-caption p { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-sec); }
+
+/* Instructions */
+.instructions-box { background: var(--surface2); border: 1px solid var(--rule); padding: 1.5rem 2rem; margin-bottom: 3rem; border-left: 3px solid var(--gold); }
+.instructions-box h4 { font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: .8rem; }
+.instructions-box ol { font-size: .85rem; color: var(--text-sec); line-height: 2; padding-left: 1.2rem; }
+code { font-size: .82em; background: var(--surface); padding: .1em .4em; border-radius: 2px; color: var(--gold); }
+</style>
+</head>
+<body>
+<script src="js/nav-inject.js"></script>
+
+<section>
+  <div class="sec-label">Visual Moments</div>
+  <h2 class="sec-title">The <em>Gallery</em></h2>
+
+  <div class="instructions-box reveal">
+    <h4>How to add photos to your gallery</h4>
+    <ol>
+      <li>Save your photo files into the <code>assets/gallery/</code> folder (JPG or PNG recommended)</li>
+      <li>Open <code>gallery.html</code> and find the gallery grid section</li>
+      <li>Copy a <code>.gallery-item</code> block from the TEMPLATE comments at the bottom</li>
+      <li>Change the <code>src</code> to <code>assets/gallery/your-photo.jpg</code></li>
+      <li>Update the <code>data-cat</code> attribute: <code>professional</code>, <code>events</code>, <code>personal</code>, or <code>work</code></li>
+      <li>Fill in the caption text and sub-caption, then push to GitHub</li>
+    </ol>
+  </div>
+
+  <div class="gallery-filters">
+    <button class="gf-btn active" onclick="filterGallery('all',this)">All</button>
+    <button class="gf-btn" onclick="filterGallery('professional',this)">Professional</button>
+    <button class="gf-btn" onclick="filterGallery('events',this)">Events</button>
+    <button class="gf-btn" onclick="filterGallery('personal',this)">Personal</button>
+    <button class="gf-btn" onclick="filterGallery('work',this)">Work</button>
+  </div>
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  HOW TO ADD A PHOTO                                         ║
+  ║  Replace the placeholder .gallery-item divs below           ║
+  ║  Uncomment the TEMPLATE at the bottom and fill it in        ║
+  ╚══════════════════════════════════════════════════════════════╝
+  -->
+
+  <div class="gallery-grid" id="galleryGrid">
+
+    <!-- Placeholder tiles (delete once you add real photos) -->
+    <div class="gallery-item reveal" data-cat="professional" onclick="openLightbox(this)">
+      <div class="gallery-placeholder"><div class="gallery-placeholder-sym">◎</div><div class="gallery-placeholder-label">Professional · Add photo</div></div>
+      <div class="gallery-caption"><div class="gallery-caption-text">Add your photo here</div><div class="gallery-caption-sub">Save to assets/gallery/</div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="events" onclick="openLightbox(this)">
+      <div class="gallery-placeholder tall"><div class="gallery-placeholder-sym">◈</div><div class="gallery-placeholder-label">Events · Add photo</div></div>
+      <div class="gallery-caption"><div class="gallery-caption-text">Event memory</div><div class="gallery-caption-sub">Caption · Year</div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="personal" onclick="openLightbox(this)">
+      <div class="gallery-placeholder"><div class="gallery-placeholder-sym">◇</div><div class="gallery-placeholder-label">Personal · Add photo</div></div>
+      <div class="gallery-caption"><div class="gallery-caption-text">Personal moment</div><div class="gallery-caption-sub">Caption · Year</div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="work" onclick="openLightbox(this)">
+      <div class="gallery-placeholder wide"><div class="gallery-placeholder-sym">△</div><div class="gallery-placeholder-label">Work · Add photo</div></div>
+      <div class="gallery-caption"><div class="gallery-caption-text">At work</div><div class="gallery-caption-sub">Caption · Year</div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="professional" onclick="openLightbox(this)">
+      <div class="gallery-placeholder tall"><div class="gallery-placeholder-sym">◉</div><div class="gallery-placeholder-label">Professional · Add photo</div></div>
+      <div class="gallery-caption"><div class="gallery-caption-text">Professional</div><div class="gallery-caption-sub">Caption · Year</div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="events" onclick="openLightbox(this)">
+      <div class="gallery-placeholder"><div class="gallery-placeholder-sym">◫</div><div class="gallery-placeholder-label">Events · Add photo</div></div>
+      <div class="gallery-caption"><div class="gallery-caption-text">Event</div><div class="gallery-caption-sub">Caption · Year</div></div>
+    </div>
+
+    <!-- REAL PHOTO TEMPLATE — copy and fill in:
+    <div class="gallery-item reveal" data-cat="professional" onclick="openLightbox(this)">
+      <img src="assets/gallery/your-photo.jpg" alt="Description of photo"
+           data-caption="Your Caption Here" data-sub="Context or date">
+      <div class="gallery-caption">
+        <div class="gallery-caption-text">Caption for your photo</div>
+        <div class="gallery-caption-sub">Coimbatore · Jan 2026</div>
+      </div>
+    </div>
+    -->
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <div class="lightbox-caption">
+    <p id="lightboxCaption"></p>
+  </div>
+</div>
+
+<div class="gold-line"></div>
+<div class="page-footer">
+  <div class="footer-brand">H. I. Samyuktha</div>
+  <div class="footer-copy">© 2026 · All Rights Reserved</div>
+</div>
+
+<script>
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+function openLightbox(el) {
+  const img = el.querySelector('img');
+  if (!img) return;
+  document.getElementById('lightboxImg').src = img.src;
+  document.getElementById('lightboxCaption').textContent = img.dataset.caption || '';
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+<script src="js/nav.js"></script>
+</body>
+</html>

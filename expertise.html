@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expertise — H. I. Samyuktha</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.domains { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.4rem; margin-bottom: 5rem; }
+.domain-card { padding: 2rem 1.75rem; border: 1px solid var(--card-border); background: var(--card-bg); transition: border-color .35s, transform .35s; position: relative; overflow: hidden; }
+.domain-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transition: transform .4s; }
+.domain-card:hover { border-color: rgba(201,168,76,.3); transform: translateY(-4px); }
+.domain-card:hover::after { transform: scaleX(1); }
+.d-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--gold); opacity: .28; line-height: 1; margin-bottom: .6rem; }
+.d-name { font-size: .76rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--text); margin-bottom: .55rem; }
+.d-desc { font-size: .84rem; color: var(--text-ter); line-height: 1.65; }
+.skills-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px,1fr)); gap: 1.2rem; }
+.skill-group-name { font-size: .6rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: .7rem; padding-bottom: .35rem; border-bottom: 1px solid var(--rule); }
+.skill-list { list-style: none; }
+.skill-list li { font-size: .84rem; color: var(--text-sec); padding: .28rem 0; border-bottom: 1px solid rgba(201,168,76,.05); display: flex; align-items: center; gap: .55rem; }
+.skill-list li::before { content: '◈'; font-size: .48rem; color: var(--gold); opacity: .38; }
+</style>
+</head>
+<body>
+<script src="js/nav-inject.js"></script>
+
+<section>
+  <div class="sec-label">Domains of Mastery</div>
+  <h2 class="sec-title">Areas of <em>Deep Expertise</em></h2>
+  <div class="domains">
+    <div class="domain-card reveal"><div class="d-num">01</div><div class="d-name">Business Decoding</div><div class="d-desc">Translating the mechanics of markets, organisations, and competitive landscapes into clear, decisive frameworks. The ability to read what is not written — and act on it.</div></div>
+    <div class="domain-card reveal"><div class="d-num">02</div><div class="d-name">Operations & Administration</div><div class="d-desc">Designing and orchestrating systems that allow organisations to run with clarity, efficiency, and sustained purpose — from workflows to company culture to executive rhythm.</div></div>
+    <div class="domain-card reveal"><div class="d-num">03</div><div class="d-name">Brand Positioning</div><div class="d-desc">Crafting identities that don't simply stand out — they stand for something enduring. Strategic positioning that makes brands unmistakable and unmovable in a crowded market.</div></div>
+    <div class="domain-card reveal"><div class="d-num">04</div><div class="d-name">Sales & Marketing</div><div class="d-desc">Bridging strategy and revenue. Turning audience insight into influence, and influence into measurable commercial impact across channels, contexts, and customer lifecycles.</div></div>
+    <div class="domain-card reveal"><div class="d-num">05</div><div class="d-name">Healthcare Intelligence</div><div class="d-desc">Applying business acumen and systems thinking to one of the world's most complex sectors — advancing care delivery through intelligent operational design and strategic clarity.</div></div>
+    <div class="domain-card reveal"><div class="d-num">06</div><div class="d-name">Research & Analysis</div><div class="d-desc">Evidence-based thinking forged through rigorous methodology. The capacity to question deeply, investigate systematically, and present findings with precision and purpose.</div></div>
+  </div>
+
+  <div class="gold-line" style="margin-bottom:4rem;"></div>
+  <div class="sec-label reveal">Skills at a Glance</div>
+  <div class="skills-matrix reveal">
+    <div class="skill-group"><div class="skill-group-name">Leadership</div><ul class="skill-list"><li>Strategic Leadership</li><li>Team Building</li><li>Executive Communication</li><li>Public Speaking</li><li>Stakeholder Management</li></ul></div>
+    <div class="skill-group"><div class="skill-group-name">Business</div><ul class="skill-list"><li>Business Analysis</li><li>Operations Design</li><li>Brand Positioning</li><li>Sales Strategy</li><li>Market Research</li></ul></div>
+    <div class="skill-group"><div class="skill-group-name">Research</div><ul class="skill-list"><li>Analytical Thinking</li><li>Literature Review</li><li>Data Interpretation</li><li>Report Writing</li><li>Critical Thinking</li></ul></div>
+    <div class="skill-group"><div class="skill-group-name">Soft Skills</div><ul class="skill-list"><li>Communication</li><li>Adaptability</li><li>Problem Solving</li><li>Collaboration</li><li>Attention to Detail</li></ul></div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+<div class="page-footer">
+  <div class="footer-brand">H. I. Samyuktha</div>
+  <div class="footer-copy">© 2026 · All Rights Reserved</div>
+</div>
+<script src="js/nav.js"></script>
+</body>
+</html>
